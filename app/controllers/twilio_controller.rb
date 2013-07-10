@@ -18,7 +18,6 @@ class TwilioController < ApplicationController
 
 	def receive_text_message
 		#get 10 latest products
-		@products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
 
 		#receive
 		message_body = params["Body"]
@@ -35,28 +34,10 @@ class TwilioController < ApplicationController
 	 	
 	    #prepare products for sms by adding a newline %0a between them 
 
-	   	
-	    list = ""
-		@products.each do |item|
-			list + item.title + "%0a"
-		end
-
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+1#{twilio_phone_number}",
 	      :to => number_to_send_to,
-	      :body => "#{list} end"
+	      :body => "hello"
 	    )
 	end
-
-	private
-	#takes an array and returns a string with each array item on a newline
-	def product_to_sms_list(prod)
-		list = ""
-
-		prod.each do |item|
-			list + item.title + "%0a"
-		end
-		return list
-	end
-
 end
