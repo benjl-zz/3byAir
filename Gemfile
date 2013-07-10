@@ -7,8 +7,6 @@ gem 'rails', '3.2.13'
 
 
 group :development, :test do
-  gem "less-rails-bootstrap"
-  gem "therubyracer", :platforms => :ruby
   gem 'sqlite3'
 end
 
@@ -48,5 +46,7 @@ gem 'jquery-rails'
 
 gem 'shopify_app'
 gem 'twilio-ruby'
+gem "less-rails-bootstrap"
+gem "therubyracer", :platforms => :ruby
 
 
