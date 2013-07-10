@@ -1,3 +1,8 @@
+<% @product.each_with_index do |product,index| %>
+	<% list = [] %>
+	<% list << product.title %>
+<% end %>
+
 <Response>
-  <Sms>Hey, thanks for the text! Hmm... you wouldn't be from <%= @city %>, <%= @state %> by any chance?</Sms>
+  <Sms><%= list.to_s %></Sms>
 </Response>
