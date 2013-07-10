@@ -36,3 +36,12 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem 'shopify_app'
+gem 'twilio-ruby'
+
+group :development, :test do
+  gem "less-rails-bootstrap"
+  gem "therubyracer", :platforms => :ruby
+end
