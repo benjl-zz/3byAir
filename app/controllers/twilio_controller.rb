@@ -40,7 +40,7 @@ class TwilioController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+1#{twilio_phone_number}",
 	      :to => number_to_send_to,
-	      :body => array_to_sms_list(@products)
+	      :body => "#{@products}"
 	    )
 	end
 
