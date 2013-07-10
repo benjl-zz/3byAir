@@ -1,4 +1,9 @@
 Threebyair::Application.configure do
+      
+  # Shopify API connection credentials:
+  config.shopify.api_key = 'ab33dcb30950d242a58031f62277c41a'
+  config.shopify.secret = 'daa3befb1009a244cf31ed9ebf1f9d9f'
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

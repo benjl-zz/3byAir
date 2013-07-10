@@ -1,6 +1,10 @@
 Threebyair::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+ # Shopify API connection credentials:
+  config.shopify.api_key = 'ab33dcb30950d242a58031f62277c41a'
+  config.shopify.secret = 'daa3befb1009a244cf31ed9ebf1f9d9f'
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
