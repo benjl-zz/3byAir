@@ -1,5 +1,5 @@
 class TwilioController < ApplicationController
-
+	around_filter :shopify_session
 	def process_sms
 		@products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
 		@city = params[:FromCity].capitalize
