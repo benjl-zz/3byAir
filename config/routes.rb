@@ -11,7 +11,7 @@ Threebyair::Application.routes.draw do
 
   root :to => 'home#index'
 
-  match 'sms' => 'twilio#process_sms'
+  match 'sms' => 'home#process_sms'
 
 
   # The priority is based upon order of creation:

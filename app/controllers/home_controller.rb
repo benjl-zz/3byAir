@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   
   def welcome
     current_host = "#{request.host}#{':' + request.port.to_s if request.port != 80}"
-    @callback_url = "http://#{current_host}/login"
+    @callback_url = "http://#{current_host}"
   end
   
   def index
@@ -13,6 +13,12 @@ class HomeController < ApplicationController
 
     # get latest 5 orders
     @orders   = ShopifyAPI::Order.find(:all, :params => {:limit => 5, :order => "created_at DESC" })
+  end
+
+  def process_sms
+    @city = params[:FromCity].capitalize
+      @state = params[:FromState]
+    render 'process_sms.xml.erb', :content_type => 'text/xml'
   end
   
 end
