@@ -40,16 +40,17 @@ class TwilioController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+1#{twilio_phone_number}",
 	      :to => number_to_send_to,
-	      :body => "#{@products}"
+	      :body => product_to_sms_list(@products)
 	    )
 	end
 
 	private
 	#takes an array and returns a string with each array item on a newline
-	def array_to_sms_list(ary)
+	def product_to_sms_list(prod)
 		list = ""
-		ary.each do |item|
-			list = "#{list}%0a#{item}"
+
+		prod.each do |item|
+			list + item.title + "%0a"
 		end
 		return list
 	end
