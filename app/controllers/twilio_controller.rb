@@ -35,12 +35,16 @@ class TwilioController < ApplicationController
 	 	
 	    #prepare products for sms by adding a newline %0a between them 
 
-
+	   	
+	    list = ""
+		@products.each do |item|
+			list + item.title + "%0a"
+		end
 
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+1#{twilio_phone_number}",
 	      :to => number_to_send_to,
-	      :body => product_to_sms_list(@products)
+	      :body => "#{list}"
 	    )
 	end
 
